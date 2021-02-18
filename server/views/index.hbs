@@ -1,0 +1,28 @@
+
+<main>
+    {{>navbar}}
+    <link rel="stylesheet" href="css/home.css">
+    <section class="subtitle debug j-cen ai-cen">
+        {{#if noStreams}}
+         <h2 class="j-cen ai-cen">No streams sorry</h2>
+        {{else}}
+            <h2 class="j-cen ai-cen">Streams are here</h2>
+        {{/if}}
+    </section>
+    <section class="streams-list debug">
+        {{#each streams_list}}
+            {{!-- {{this.dataValues.id}} --}}
+            <a href="/streamer/{{this.dataValues.authorLogin}}">
+                <div class="mp5treams-unit">
+                    <div class="stream-image"></div>
+                    <div class="stream-info">
+                        <p class="stream-title">{{this.dataValues.title}}</p>
+                        <p class="stream-author">@{{this.dataValues.authorLogin}}</p>
+                    </div>
+                </div>
+            </a>
+        {{/each}}
+      
+       
+    </section>
+</main>

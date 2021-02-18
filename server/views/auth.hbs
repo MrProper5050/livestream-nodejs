@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="css/auth.css">
+<main>
+   
+    <form action="{{authType}}" method="post">
+        
+         <h2>{{authType}}</h2>
+         <div class="inputs">
+            <div class="login">
+                <label for="login">Login</label>
+                <input type="text" id="login" name="login"/>
+            </div>
+            <div class="pass">
+                <label for="login">Password</label>
+                <input type="password" id="password" name="password"/>
+            </div>
+         </div>
+        
+        <button class="submit-btn" type="submit">{{authType}}</button>
+    
+        <div class="navbtns">   
+            <a href="/signup">signup</a>
+            <a href="/signin">signin</a>
+        </div>
+    </form>
+</main>

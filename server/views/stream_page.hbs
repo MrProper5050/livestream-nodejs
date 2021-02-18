@@ -1,0 +1,42 @@
+<main>
+    <link rel="stylesheet" href="/css/stream.css">
+
+    <section class="player-section">
+        <div class="stream-title">
+            <h2>{{streamTitle}}</h2>
+        </div>
+
+        <video ref="Player" id="live_stream" class="vjs-default-skin video-js vjs-layout-tiny" data-setup='{"controls":true, "autoplay":true, "fluid":true, preload: "auto"}' >
+        </video>
+
+        <div class="stream-description">
+            <h4>DESCRIPTION</h4>
+            <hr>
+            <p>{{streamDescr}}</p>
+        </div>
+    </section>
+
+
+
+
+
+    <script>
+             
+
+        let loc = window.location.pathname.split('/')
+        let authorName = loc[2]
+
+        let player = videojs(document.querySelector('.video-js'), {
+            autoplay: true,
+            controls: true,
+            sources: [{
+                src: '//25.76.82.182:3020/streamer/'+authorName+'/getstream/index.m3u8',
+                type: 'application/x-mpegURL'
+            }],
+            fluid: true,
+            responsive: true,
+            aspectRatio: '29:7'
+        }) 
+    </script>
+
+</main>

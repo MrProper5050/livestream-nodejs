@@ -1,0 +1,12 @@
+<nav>
+    <link rel="stylesheet" href="css/navbar.css">
+    <h1>MP5tream</h1>
+    <ul class="debug">
+        <li><a href="/">Главная</a></li>
+        <li><a href="/profile">Профиль</a></li>
+        {{#unless isAuth}}
+        <li><a href="/signin">Вход</a></li>
+        {{/unless}}
+        
+    </ul>
+</nav>

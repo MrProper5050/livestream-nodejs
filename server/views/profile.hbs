@@ -1,0 +1,65 @@
+<main>
+    {{>navbar}}
+    <link rel="stylesheet" href="css/profile.css">
+    
+
+    <section class="user-info">
+        <div><p>Login:</p>{{login}}</div>
+        <div><p>key:</p>{{key}}</div>
+       
+    </section>
+    <section class="stream-create">
+        <h2>Create stream</h2>
+        <form action="/stream/create" method="post">
+            <label for="title">Stream title</label>
+            <input type="text" id="title" name="title">
+
+            <label for="descr">Stream description</label>
+            <textarea name="descr" id="descr" cols="30" rows="10">
+            </textarea>
+            <button type="submit">Create stream</button>
+        </form>
+    
+    </section>
+    <section class="streams">
+        <h2>Active stream</h2>
+
+        <div class="active-stream">
+            <table border="1">
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>state</th>
+                    <th>ctreatedAt</th>
+                    
+                </tr>
+                {{#if actStream.dataValues}}
+                <tr>
+                    <td class="strmId">{{actStream.dataValues.id}}</td>
+                    <td>{{actStream.dataValues.title}}</td>
+                    <td>{{actStream.dataValues.state}}</td>
+                    <td>{{actStream.dataValues.createdAt}}</td>
+                    <td><button onclick="deleteStream()">DELETE</button></td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td class="strmId">{{actStream.id}}</td>
+                    <td>{{actStream.title}}</td>
+                    <td>{{actStream.state}}</td>
+                    <td>{{actStream.createdAt}}</td>
+                    <td><button class="delete-btn" >DELETE</button></td>
+                </tr>
+                {{/if}}
+            </table>
+            {{!-- <div class="id-stream">{{actStream.id}}</div>
+            <div class="title-stream">{{actStream.title}}</div>
+            <div class="ctreatedAt-stream">{{actStream.createdAt}}</div> --}}
+
+        </div>
+    </section>
+
+    <script src="js/profile.js"></script>
+
+    
+
+</main>
